@@ -1,9 +1,9 @@
-import { getURLsFromHTML, normalizeURL } from "./crawl";
+import { getURLsFromHTML, normalizedURL } from "./crawl";
 
 describe("normalizeURL", () => {
   it("输入有协议的url", () => {
     const input = "https://blog.boot.dev";
-    const actual = normalizeURL(input);
+    const actual = normalizedURL(input);
     const expected = "blog.boot.dev";
 
     expect(actual).toEqual(expected);
@@ -11,7 +11,7 @@ describe("normalizeURL", () => {
 
   it("输入有路径的url", () => {
     const input = "https://blog.boot.dev/path";
-    const actual = normalizeURL(input);
+    const actual = normalizedURL(input);
     const expected = "blog.boot.dev/path";
 
     expect(actual).toEqual(expected);
@@ -19,7 +19,7 @@ describe("normalizeURL", () => {
 
   it("输入以斜杠结尾的url", () => {
     const input = "https://blog.boot.dev/";
-    const actual = normalizeURL(input);
+    const actual = normalizedURL(input);
     const expected = "blog.boot.dev";
 
     expect(actual).toEqual(expected);
@@ -27,7 +27,7 @@ describe("normalizeURL", () => {
 
   it("输入有大写的url", () => {
     const input = "https://BLOG.boot.dev/path/";
-    const actual = normalizeURL(input);
+    const actual = normalizedURL(input);
     const expected = "blog.boot.dev/path";
 
     expect(actual).toEqual(expected);
